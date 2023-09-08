@@ -16,6 +16,11 @@
 		559332882AAB75BB004BADF8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 559332872AAB75BB004BADF8 /* SnapKit */; };
 		5593328A2AAB75E6004BADF8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 559332892AAB75E6004BADF8 /* .gitignore */; };
 		5593328C2AAB75FD004BADF8 /* APIKEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593328B2AAB75FD004BADF8 /* APIKEY.swift */; };
+		559332A32AAB7C2C004BADF8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 559332A22AAB7C2C004BADF8 /* Realm */; };
+		559332A52AAB7C2C004BADF8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 559332A42AAB7C2C004BADF8 /* RealmSwift */; };
+		559332A72AAB7C86004BADF8 /* NaverShoppingEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559332A62AAB7C86004BADF8 /* NaverShoppingEndPoint.swift */; };
+		559332AB2AAB8F7E004BADF8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559332AA2AAB8F7E004BADF8 /* NetworkError.swift */; };
+		559332AD2AABAA06004BADF8 /* ShoppingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559332AC2AABAA06004BADF8 /* ShoppingResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,9 @@
 		5593327D2AAB7599004BADF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559332892AAB75E6004BADF8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5593328B2AAB75FD004BADF8 /* APIKEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKEY.swift; sourceTree = "<group>"; };
+		559332A62AAB7C86004BADF8 /* NaverShoppingEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingEndPoint.swift; sourceTree = "<group>"; };
+		559332AA2AAB8F7E004BADF8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		559332AC2AABAA06004BADF8 /* ShoppingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				559332A52AAB7C2C004BADF8 /* RealmSwift in Frameworks */,
+				559332A32AAB7C2C004BADF8 /* Realm in Frameworks */,
 				559332852AAB75AD004BADF8 /* JimmyKit in Frameworks */,
 				559332882AAB75BB004BADF8 /* SnapKit in Frameworks */,
 			);
@@ -105,7 +115,7 @@
 				559332932AAB7774004BADF8 /* Network */,
 				559332962AAB77A2004BADF8 /* Model */,
 				559332912AAB7757004BADF8 /* View */,
-				559332922AAB775E004BADF8 /* Controller */,
+				559332A82AAB7D4F004BADF8 /* ViewModel */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -121,22 +131,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		559332922AAB775E004BADF8 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				559332972AAB77C0004BADF8 /* Search */,
-				559332982AAB7803004BADF8 /* Like */,
-				559332992AAB7839004BADF8 /* Detail */,
-				5593329F2AAB793D004BADF8 /* Setting */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		559332932AAB7774004BADF8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				559332952AAB7790004BADF8 /* APIEndPoint */,
+				559332A92AAB8F62004BADF8 /* Error */,
 				5593328F2AAB770E004BADF8 /* APIKey */,
+				559332952AAB7790004BADF8 /* APIEndPoint */,
 				559332942AAB7781004BADF8 /* APIService */,
 			);
 			path = Network;
@@ -152,6 +152,7 @@
 		559332952AAB7790004BADF8 /* APIEndPoint */ = {
 			isa = PBXGroup;
 			children = (
+				559332A62AAB7C86004BADF8 /* NaverShoppingEndPoint.swift */,
 			);
 			path = APIEndPoint;
 			sourceTree = "<group>";
@@ -159,30 +160,9 @@
 		559332962AAB77A2004BADF8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				559332AC2AABAA06004BADF8 /* ShoppingResult.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		559332972AAB77C0004BADF8 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				559332732AAB7599004BADF8 /* ViewController.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		559332982AAB7803004BADF8 /* Like */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Like;
-			sourceTree = "<group>";
-		};
-		559332992AAB7839004BADF8 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		5593329A2AAB7858004BADF8 /* Detail */ = {
@@ -202,6 +182,7 @@
 		5593329C2AAB785E004BADF8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				559332732AAB7599004BADF8 /* ViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -220,18 +201,26 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		5593329F2AAB793D004BADF8 /* Setting */ = {
+		559332A02AAB7954004BADF8 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		559332A02AAB7954004BADF8 /* Setting */ = {
+		559332A82AAB7D4F004BADF8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Setting;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		559332A92AAB8F62004BADF8 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				559332AA2AAB8F7E004BADF8 /* NetworkError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +242,8 @@
 			packageProductDependencies = (
 				559332842AAB75AD004BADF8 /* JimmyKit */,
 				559332872AAB75BB004BADF8 /* SnapKit */,
+				559332A22AAB7C2C004BADF8 /* Realm */,
+				559332A42AAB7C2C004BADF8 /* RealmSwift */,
 			);
 			productName = NaverShoppingList;
 			productReference = 5593326C2AAB7599004BADF8 /* NaverShoppingList.app */;
@@ -285,6 +276,7 @@
 			packageReferences = (
 				559332832AAB75AD004BADF8 /* XCRemoteSwiftPackageReference "JimmyKit" */,
 				559332862AAB75BB004BADF8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				559332A12AAB7C2C004BADF8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 5593326D2AAB7599004BADF8 /* Products */;
 			projectDirPath = "";
@@ -316,7 +308,10 @@
 				559332742AAB7599004BADF8 /* ViewController.swift in Sources */,
 				559332702AAB7599004BADF8 /* AppDelegate.swift in Sources */,
 				5593328C2AAB75FD004BADF8 /* APIKEY.swift in Sources */,
+				559332AB2AAB8F7E004BADF8 /* NetworkError.swift in Sources */,
 				559332722AAB7599004BADF8 /* SceneDelegate.swift in Sources */,
+				559332A72AAB7C86004BADF8 /* NaverShoppingEndPoint.swift in Sources */,
+				559332AD2AABAA06004BADF8 /* ShoppingResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +537,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		559332A12AAB7C2C004BADF8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -554,6 +557,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 559332862AAB75BB004BADF8 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		559332A22AAB7C2C004BADF8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 559332A12AAB7C2C004BADF8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		559332A42AAB7C2C004BADF8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 559332A12AAB7C2C004BADF8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
