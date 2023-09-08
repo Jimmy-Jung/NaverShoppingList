@@ -13,6 +13,10 @@
 		559332772AAB7599004BADF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559332752AAB7599004BADF8 /* Main.storyboard */; };
 		559332792AAB7599004BADF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 559332782AAB7599004BADF8 /* Assets.xcassets */; };
 		5593327C2AAB7599004BADF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5593327A2AAB7599004BADF8 /* LaunchScreen.storyboard */; };
+		559332852AAB75AD004BADF8 /* JimmyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 559332842AAB75AD004BADF8 /* JimmyKit */; };
+		559332882AAB75BB004BADF8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 559332872AAB75BB004BADF8 /* SnapKit */; };
+		5593328A2AAB75E6004BADF8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 559332892AAB75E6004BADF8 /* .gitignore */; };
+		5593328C2AAB75FD004BADF8 /* APIKEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593328B2AAB75FD004BADF8 /* APIKEY.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,8 @@
 		559332782AAB7599004BADF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5593327B2AAB7599004BADF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5593327D2AAB7599004BADF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		559332892AAB75E6004BADF8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5593328B2AAB75FD004BADF8 /* APIKEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKEY.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				559332852AAB75AD004BADF8 /* JimmyKit in Frameworks */,
+				559332882AAB75BB004BADF8 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,8 @@
 				559332782AAB7599004BADF8 /* Assets.xcassets */,
 				5593327A2AAB7599004BADF8 /* LaunchScreen.storyboard */,
 				5593327D2AAB7599004BADF8 /* Info.plist */,
+				559332892AAB75E6004BADF8 /* .gitignore */,
+				5593328B2AAB75FD004BADF8 /* APIKEY.swift */,
 			);
 			path = NaverShoppingList;
 			sourceTree = "<group>";
@@ -83,6 +93,10 @@
 			dependencies = (
 			);
 			name = NaverShoppingList;
+			packageProductDependencies = (
+				559332842AAB75AD004BADF8 /* JimmyKit */,
+				559332872AAB75BB004BADF8 /* SnapKit */,
+			);
 			productName = NaverShoppingList;
 			productReference = 5593326C2AAB7599004BADF8 /* NaverShoppingList.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,10 @@
 				Base,
 			);
 			mainGroup = 559332632AAB7599004BADF8;
+			packageReferences = (
+				559332832AAB75AD004BADF8 /* XCRemoteSwiftPackageReference "JimmyKit" */,
+				559332862AAB75BB004BADF8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 5593326D2AAB7599004BADF8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5593328A2AAB75E6004BADF8 /* .gitignore in Resources */,
 				5593327C2AAB7599004BADF8 /* LaunchScreen.storyboard in Resources */,
 				559332792AAB7599004BADF8 /* Assets.xcassets in Resources */,
 				559332772AAB7599004BADF8 /* Main.storyboard in Resources */,
@@ -140,6 +159,7 @@
 			files = (
 				559332742AAB7599004BADF8 /* ViewController.swift in Sources */,
 				559332702AAB7599004BADF8 /* AppDelegate.swift in Sources */,
+				5593328C2AAB75FD004BADF8 /* APIKEY.swift in Sources */,
 				559332722AAB7599004BADF8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +378,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		559332832AAB75AD004BADF8 /* XCRemoteSwiftPackageReference "JimmyKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jimmy-Jung/JimmyKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		559332862AAB75BB004BADF8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		559332842AAB75AD004BADF8 /* JimmyKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 559332832AAB75AD004BADF8 /* XCRemoteSwiftPackageReference "JimmyKit" */;
+			productName = JimmyKit;
+		};
+		559332872AAB75BB004BADF8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 559332862AAB75BB004BADF8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 559332642AAB7599004BADF8 /* Project object */;
 }
