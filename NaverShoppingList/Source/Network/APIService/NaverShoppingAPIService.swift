@@ -37,10 +37,16 @@ struct NaverShoppingAPIService {
         }
         urlComponents?.queryItems = queryItems
         guard let url = urlComponents?.url else { return .failure(NetworkError.urlError) }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.addValue(APIKEY.ClientID, forHTTPHeaderField: "X-Naver-Client-Id")
-        urlRequest.addValue(APIKEY.ClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
+        var urlRequest = requestWithHttpHeader(url: url, httpMethod: .get)
         return await performRequest(with: urlRequest)
+    }
+    
+    private func requestWithHttpHeader(url: URL, httpMethod: HttpMethod) -> URLRequest{
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod.rawValue
+        urlRequest.addValue(APIKEY.ClientID, forHTTPHeaderField: APIKEY.ClientID_Header)
+        urlRequest.addValue(APIKEY.ClientSecret, forHTTPHeaderField: APIKEY.ClientSecret_Header)
+        return urlRequest
     }
     
     private func performRequest(with urlRequest: URLRequest) async -> NaverSearchResult {

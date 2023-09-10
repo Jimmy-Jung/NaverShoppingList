@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum HttpMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}
+
 enum NaverShoppingEndPoint {
     static var baseURL = "https://openapi.naver.com/v1/search/shop.json"
 

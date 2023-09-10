@@ -87,6 +87,4 @@ final class NaverShoppingAPIServiceTests: XCTestCase {
             XCTAssertEqual(error.errorDescription, QueryError.start.errorDescription)
         }
     }
-    
-    
 }
