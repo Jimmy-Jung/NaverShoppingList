@@ -18,7 +18,8 @@ struct ShoppingData: Codable {
     let title: String
     let link: String
     let image: String
-    let lprice, hprice, mallName, productID: String
+    let mallName: String
+    let lprice, hprice, productID: String
     let productType: String
     let brand, maker: String
     let category1: String

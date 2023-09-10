@@ -32,6 +32,7 @@ final class NSSearchViewController: UIViewController {
         view.backgroundColor(.systemBackground)
         view.addSubview(mainView)
         mainView.sortButtonCollectionView.register(NSButtonCollectionViewCell.self, forCellWithReuseIdentifier: NSButtonCollectionViewCell.identifier)
+        mainView.resultsCollectionView.register(NSResultCollectionViewCell.self, forCellWithReuseIdentifier: NSResultCollectionViewCell.identifier)
     }
     
     private func setConstraints() {
@@ -57,7 +58,16 @@ extension NSSearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         guard let term = searchBar.text, !term.isEmpty else { return }
-        
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let term = searchBar.text, !term.isEmpty else { return }
+        guard let selectedItem = mainView.resultsCollectionView.indexPathsForSelectedItems else {
+            fatalError("선택된 분류 셀이 없습니다.")
+        }
+        searchManager.searchTerm(term: term, sort: SortType.allCases[selectedItem.first?.item ?? 0])
     }
 }
 
@@ -66,17 +76,19 @@ extension NSSearchViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView == mainView.sortButtonCollectionView {
             return SortType.allCases.count
         } else {
-            return 10
+            return shoppingResults.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mainView.sortButtonCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSButtonCollectionViewCell.identifier, for: indexPath) as! NSButtonCollectionViewCell
-            cell.sortType = SortType.allCases[indexPath.row]
+            cell.sortType = SortType.allCases[indexPath.item]
             return cell
         } else {
-            let cell = UICollectionViewCell()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSResultCollectionViewCell.identifier, for: indexPath) as! NSResultCollectionViewCell
+            let item = self.shoppingResults[indexPath.item]
+            cell.shoppingData = item
             return cell
         }
     }

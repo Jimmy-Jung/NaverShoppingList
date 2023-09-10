@@ -15,6 +15,9 @@ final class NSSearchView: UIView {
         let sb = UISearchBar()
         sb.placeholder = NSSearchString.searchBarPlaceholder
         sb.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        sb.setValue("취소", forKey: "cancelButtonText")
+        sb.setShowsCancelButton(true, animated: true)
+        sb.tintColor = .label
         return sb
     }()
     
@@ -33,7 +36,13 @@ final class NSSearchView: UIView {
     }()
     
     let resultsCollectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: .init())
+        let layout = UICollectionViewFlowLayout(
+            numberOfRows: 2,
+            additionalHeight: 76,
+            spacing: 10,
+            inset: .init(top: 0, left: 10, bottom: 0, right: 10)
+        )
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor(.systemBackground)
         return cv
     }()

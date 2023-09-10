@@ -24,11 +24,10 @@ struct NaverShoppingAPIService {
     ) async -> NaverSearchResult {
         var urlComponents = URLComponents(string: NaverEndPoint.baseURL)
         guard !query.isEmpty else { return .failure(.networkingError(.query)) }
-        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard display <= 100 else { return .failure(.networkingError(.display)) }
         guard start <= 100 else { return .failure(.networkingError(.start)) }
         var queryItems: [URLQueryItem] = []
-        queryItems.append(URLQueryItem(name: "query", value: encodedQuery))
+        queryItems.append(URLQueryItem(name: "query", value: query))
         queryItems.append(URLQueryItem(name: "display", value: "\(display)"))
         queryItems.append(URLQueryItem(name: "start", value: "\(start)"))
         queryItems.append(URLQueryItem(name: "sort", value: sort.rawValue))
@@ -39,6 +38,7 @@ struct NaverShoppingAPIService {
         }
         urlComponents?.queryItems = queryItems
         guard let url = urlComponents?.url else { return .failure(NetworkError.urlError) }
+        print(url)
         let urlRequest = requestWithHttpHeader(url: url, httpMethod: .get)
         return await performRequest(with: urlRequest)
     }
@@ -48,6 +48,7 @@ struct NaverShoppingAPIService {
         urlRequest.httpMethod = httpMethod.rawValue
         urlRequest.addValue(APIKEY.ClientID, forHTTPHeaderField: APIKEY.ClientID_Header)
         urlRequest.addValue(APIKEY.ClientSecret, forHTTPHeaderField: APIKEY.ClientSecret_Header)
+        print(urlRequest)
         return urlRequest
     }
     
@@ -63,6 +64,7 @@ struct NaverShoppingAPIService {
     private func parseJSON(_ data: Data) -> NaverSearchResult {
         do {
             let naverData = try JSONDecoder().decode(ShoppingResult.self, from: data)
+            print(naverData)
             return .success(naverData)
         } catch {
             if let naverErrorData = try? JSONDecoder().decode(NaverErrorResult.self, from: data) {

@@ -45,14 +45,14 @@ final class NSButtonCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         title.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8))
         }
         makeShadow()
     }
     override var isSelected: Bool {
         didSet {
             isSelected ? (title.textColor = .systemBackground) : (title.textColor = .secondaryLabel)
-            isSelected ? (backView.backgroundColor = .secondaryLabel) : (backView.backgroundColor = .systemBackground)
+            isSelected ? (backView.backgroundColor = .label) : (backView.backgroundColor = .systemBackground)
         }
     }
     

@@ -18,22 +18,21 @@ extension UICollectionViewFlowLayout {
     /// - Returns: UICollectionViewFlowLayout
     convenience init(
         numberOfRows: CGFloat,
-        itemRatio: CGFloat,
+        additionalHeight: CGFloat,
         spacing: CGFloat,
-        inset: UIEdgeInsets,
-        scrollDirection: UICollectionView.ScrollDirection
+        inset: UIEdgeInsets
     ) {
         self.init()
         let screenWidth = UIScreen.main.bounds.width
         let length = screenWidth - (spacing * (numberOfRows - 1)) - (inset.left + inset.right)
         self.itemSize = CGSize(
             width: length/numberOfRows,
-            height: (length/numberOfRows) * itemRatio
+            height: (length/numberOfRows) + additionalHeight
         )
         self.sectionInset = inset
         self.minimumInteritemSpacing = spacing
         self.minimumLineSpacing = spacing
-        self.scrollDirection = scrollDirection
+        self.scrollDirection = .vertical
         
     }
 }
