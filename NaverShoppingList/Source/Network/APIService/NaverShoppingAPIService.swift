@@ -7,13 +7,12 @@
 
 import Foundation
 
-
-
 struct NaverShoppingAPIService {
     
     typealias NaverEndPoint = NaverShoppingEndPoint
     typealias NaverSearchResult = Result<ShoppingResult, NetworkError>
     
+    /// 네이버 API를 통해 검색 결과를 가져오는 메소드
     func fetchSearchData(
         query: String,
         display: Int = 30,
@@ -42,6 +41,7 @@ struct NaverShoppingAPIService {
         return await performRequest(with: urlRequest)
     }
     
+    /// HTTP 헤더를 추가하여 URLRequest를 생성하는 메소드
     private func requestWithHttpHeader(url: URL, httpMethod: HttpMethod) -> URLRequest{
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
@@ -50,6 +50,7 @@ struct NaverShoppingAPIService {
         return urlRequest
     }
     
+    /// URLRequest를 통해 HTTP 요청을 보내고 결과를 가져오는 메소드
     private func performRequest(with urlRequest: URLRequest) async -> NaverSearchResult {
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
@@ -59,6 +60,7 @@ struct NaverShoppingAPIService {
         }
     }
     
+    /// JSON 데이터를 파싱하는 메소드
     private func parseJSON(_ data: Data) -> NaverSearchResult {
         do {
             let naverData = try JSONDecoder().decode(ShoppingResult.self, from: data)

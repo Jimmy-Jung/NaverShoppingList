@@ -129,13 +129,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		553CCE0B2AAD98900083C35B /* Manager */ = {
+		553CCE0B2AAD98900083C35B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				553CCE182AADD3160083C35B /* RealmManager.swift */,
 				553CCE0C2AAD98B80083C35B /* NSSearchManager.swift */,
 			);
-			path = Manager;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		559332632AAB7599004BADF8 = {
@@ -200,7 +200,7 @@
 			children = (
 				5593328E2AAB7700004BADF8 /* App */,
 				559332932AAB7774004BADF8 /* Network */,
-				553CCE0B2AAD98900083C35B /* Manager */,
+				553CCE0B2AAD98900083C35B /* Model */,
 				559332912AAB7757004BADF8 /* View */,
 			);
 			path = Source;
