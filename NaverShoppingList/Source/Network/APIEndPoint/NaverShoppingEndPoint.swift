@@ -17,7 +17,7 @@ enum HttpMethod: String {
 enum NaverShoppingEndPoint {
     static var baseURL = "https://openapi.naver.com/v1/search/shop.json"
 
-    enum Sort: String {
+    enum Sort: String, CaseIterable {
         case sim
         case date
         case asc

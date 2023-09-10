@@ -14,7 +14,7 @@ struct NaverShoppingAPIService {
     
     func fetchSearchData(
         query: String,
-        display: Int = 10,
+        display: Int = 30,
         start: Int = 1,
         sort: NaverEndPoint.Sort = .sim,
         filter: NaverEndPoint.Filter? = nil,
@@ -37,7 +37,7 @@ struct NaverShoppingAPIService {
         }
         urlComponents?.queryItems = queryItems
         guard let url = urlComponents?.url else { return .failure(NetworkError.urlError) }
-        var urlRequest = requestWithHttpHeader(url: url, httpMethod: .get)
+        let urlRequest = requestWithHttpHeader(url: url, httpMethod: .get)
         return await performRequest(with: urlRequest)
     }
     

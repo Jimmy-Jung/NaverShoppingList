@@ -25,7 +25,7 @@ final class NaverShoppingAPIServiceTests: XCTestCase {
     func testFetchSearchData_WhenValidQuery_ShouldReturnSuccess() async throws {
         // given
         let query = "iPhone"
-        let expectedItemCount = 10
+        let expectedItemCount = 30
         
         // when
         let result = await sut.fetchSearchData(query: query)
