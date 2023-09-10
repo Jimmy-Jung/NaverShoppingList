@@ -22,9 +22,11 @@ final class NSSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configBackBarButton(title: title)
         configurationView()
         setConstraints()
         configurationDelegate()
+//        print(realm.configuration.fileURL)
         let startIndex = IndexPath(item: 0, section: 0)
         mainView.sortButtonCollectionView.selectItem(at: startIndex, animated: false, scrollPosition: .left)
     }
@@ -142,6 +144,12 @@ extension NSSearchViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView == mainView.sortButtonCollectionView {
             guard let term = mainView.searchBar.text, !term.isEmpty else { return }
             searchManager.searchTerm(term: term, sort: SortType.allCases[indexPath.row])
+        } else {
+            transition(viewController: NSDetailViewController(), style: .pushNavigation) { [weak self] vc in
+                let item = self?.shoppingResults[indexPath.item]
+                vc.shoppingData = item
+                vc.title = item?.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+            }
         }
     }
 }
@@ -164,8 +172,4 @@ extension NSSearchViewController: NSSearchProtocol {
         }
         
     }
-    
-
-    
-    
 }

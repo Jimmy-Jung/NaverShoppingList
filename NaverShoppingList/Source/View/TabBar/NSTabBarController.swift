@@ -26,15 +26,16 @@ final class NSTabBarController: UITabBarController {
         
         let secondVC = NSLikedViewController()
         let secondNav = UINavigationController(rootViewController: secondVC)
+        secondVC.title = "좋아요 목록"
         secondVC.tabBarItem.title = "좋아요"
         secondVC.tabBarItem.image = UIImage(systemName: "heart")
         
-        let thirdVC = NSMoreViewController()
-        let thirdNav = UINavigationController(rootViewController: thirdVC)
-        thirdVC.tabBarItem.title = "더보기"
-        thirdVC.tabBarItem.image = UIImage(systemName: "ellipsis")
+//        let thirdVC = NSMoreViewController()
+//        let thirdNav = UINavigationController(rootViewController: thirdVC)
+//        thirdVC.tabBarItem.title = "더보기"
+//        thirdVC.tabBarItem.image = UIImage(systemName: "ellipsis")
         
-        setViewControllers([firstNav, secondNav, thirdNav], animated: true)
+        setViewControllers([firstNav, secondNav], animated: true)
     }
     
     private func setupTabBarController() {

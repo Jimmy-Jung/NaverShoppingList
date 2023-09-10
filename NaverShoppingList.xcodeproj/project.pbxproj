@@ -202,7 +202,6 @@
 				559332932AAB7774004BADF8 /* Network */,
 				553CCE0B2AAD98900083C35B /* Manager */,
 				559332912AAB7757004BADF8 /* View */,
-				559332A82AAB7D4F004BADF8 /* ViewModel */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -308,13 +307,6 @@
 				553CCDF42AAD5F200083C35B /* NSMoreViewController.swift */,
 			);
 			path = More;
-			sourceTree = "<group>";
-		};
-		559332A82AAB7D4F004BADF8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		559332A92AAB8F62004BADF8 /* Error */ = {

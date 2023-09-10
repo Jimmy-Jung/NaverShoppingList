@@ -20,11 +20,11 @@ class NSLikedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configBackBarButton(title: title)
         fetchShoppingData()
         configurationView()
         setConstraints()
         configurationDelegate()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,8 +105,13 @@ extension NSLikedViewController: UICollectionViewDelegate, UICollectionViewDataS
             realm.delete(task)
         }
         mainView.resultsCollectionView.reloadData()
-        
-        
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shoppingData = ShoppingData.init(from: realmShoppingResult[indexPath.item])
+        transition(viewController: NSDetailViewController(), style: .pushNavigation) { vc in
+            vc.shoppingData = shoppingData
+            vc.title = shoppingData.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+        }
     }
 }
 
