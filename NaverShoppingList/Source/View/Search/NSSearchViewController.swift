@@ -6,21 +6,23 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class NSSearchViewController: UIViewController {
     typealias SortType = NaverShoppingEndPoint.Sort
     
+    private let realm = try! Realm()
     private let mainView = NSSearchView()
     private let searchManager = NSSearchManager()
     private var shoppingResults: [ShoppingData] = [] {
         didSet {
             mainView.resultsCollectionView.reloadData()
-            print(shoppingResults)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(realm.configuration.fileURL)
         configurationView()
         setConstraints()
         configurationDelegate()
@@ -61,6 +63,7 @@ extension NSSearchViewController: UISearchBarDelegate {
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
+        shoppingResults = []
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         guard let term = searchBar.text, !term.isEmpty else { return }

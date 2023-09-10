@@ -38,7 +38,6 @@ struct NaverShoppingAPIService {
         }
         urlComponents?.queryItems = queryItems
         guard let url = urlComponents?.url else { return .failure(NetworkError.urlError) }
-        print(url)
         let urlRequest = requestWithHttpHeader(url: url, httpMethod: .get)
         return await performRequest(with: urlRequest)
     }
@@ -48,7 +47,6 @@ struct NaverShoppingAPIService {
         urlRequest.httpMethod = httpMethod.rawValue
         urlRequest.addValue(APIKEY.ClientID, forHTTPHeaderField: APIKEY.ClientID_Header)
         urlRequest.addValue(APIKEY.ClientSecret, forHTTPHeaderField: APIKEY.ClientSecret_Header)
-        print(urlRequest)
         return urlRequest
     }
     
@@ -64,7 +62,6 @@ struct NaverShoppingAPIService {
     private func parseJSON(_ data: Data) -> NaverSearchResult {
         do {
             let naverData = try JSONDecoder().decode(ShoppingResult.self, from: data)
-            print(naverData)
             return .success(naverData)
         } catch {
             if let naverErrorData = try? JSONDecoder().decode(NaverErrorResult.self, from: data) {

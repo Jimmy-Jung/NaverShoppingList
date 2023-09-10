@@ -7,20 +7,37 @@
 
 import UIKit
 import JimmyKit
+import RealmSwift
 
 final class NSResultCollectionViewCell: UICollectionViewCell {
     typealias SFConfig = UIImage.SymbolConfiguration
     
+    private let realm = try! Realm()
+    
     var shoppingData: ShoppingData? {
         didSet {
             guard let data = shoppingData else { return }
+            let realmShoppingData = realm.objects(RealmShoppingData.self)
+            let storedShoppingData = realmShoppingData.where {
+                $0.productID == data.productID
+            }.first
+            if storedShoppingData != nil {
+                heartButton.isSelected = true
+            } else {
+                heartButton.isSelected = false
+            }
+            
             let mallName = "[" + data.mallName + "]"
             let title = data.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
             let price = data.lprice
             mallNameLabel.text(mallName)
             titleLabel.text(title)
             lowPriceLabel.text(price.formatWithCommas())
-            imageView.setImage(with: data.image, placeHolder: UIImage(systemName: "photo"), transition: .fade(0.3))
+            if let image = RealmManager.loadImageFromDocument(fileName: data.productID) {
+                imageView.image(image)
+            } else {
+                imageView.setImage(with: data.image, placeHolder: UIImage(systemName: "photo"), transition: .fade(0.3))
+            }
         }
     }
     private let imageView: UIImageView = UIImageView()
@@ -76,6 +93,11 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
         .spacing(0)
         .alignment(.fill)
         .distribution(.fill)
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,6 +105,31 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
         addSubView(heartButton)
         addSubView(verticalStackView)
         setConstraints()
+        heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func heartButtonTapped() {
+        guard let shoppingData else { return }
+        let task = shoppingData.convertToRealm()
+        let realmShoppingData = realm.objects(RealmShoppingData.self)
+        let storedShoppingData = realmShoppingData.where {
+            $0.productID == shoppingData.productID
+        }.first
+        
+        if let storedShoppingData {
+            heartButton.isSelected = false
+            RealmManager.removeImageFromDocument(fileName: shoppingData.productID)
+            try! realm.write {
+                realm.delete(storedShoppingData)
+            }
+            
+        } else {
+            heartButton.isSelected = true
+            RealmManager.saveImageToDocument(fileName: shoppingData.productID, image: imageView.image)
+            try! realm.write {
+                realm.add(task)
+            }
+        }
     }
     
     private func setConstraints() {

@@ -70,7 +70,7 @@ final class NSSearchView: UIView {
         }
         
         resultsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(sortButtonCollectionView.snp.bottom)
+            make.top.equalTo(sortButtonCollectionView.snp.bottom).offset(8)
             make.horizontalEdges.bottom.equalToSuperview()
         }
     }

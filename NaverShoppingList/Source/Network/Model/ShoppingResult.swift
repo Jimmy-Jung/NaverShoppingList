@@ -27,9 +27,51 @@ struct ShoppingData: Codable {
     let category3: String
     let category4: String
 
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.productID == rhs.productID
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, link, image, lprice, hprice, mallName
         case productID = "productId"
         case productType, brand, maker, category1, category2, category3, category4
+    }
+}
+
+extension ShoppingData {
+    init(from realm: RealmShoppingData) {
+        title = realm.title
+        link = realm.link
+        image = realm.image
+        mallName = realm.mallName
+        lprice = realm.lprice
+        hprice = realm.hprice
+        productID = realm.productID
+        productType = realm.productType
+        brand = realm.brand
+        maker = realm.maker
+        category1 = realm.category1
+        category2 = realm.category2
+        category3 = realm.category3
+        category4 = realm.category4
+    }
+    
+    func convertToRealm() -> RealmShoppingData {
+        return .init(
+            title: title,
+            link: link,
+            image: image,
+            mallName: mallName,
+            lprice: lprice,
+            hprice: hprice,
+            productID: productID,
+            productType: productType,
+            brand: brand,
+            maker: maker,
+            category1: category1,
+            category2: category2,
+            category3: category3,
+            category4: category4
+        )
     }
 }
