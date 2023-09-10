@@ -14,6 +14,7 @@ final class NSSearchView: UIView {
     let searchBar: UISearchBar = {
         let sb = UISearchBar()
         sb.placeholder = NSSearchString.searchBarPlaceholder
+        sb.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         return sb
     }()
     

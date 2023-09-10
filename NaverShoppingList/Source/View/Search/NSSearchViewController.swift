@@ -11,7 +11,13 @@ final class NSSearchViewController: UIViewController {
     typealias SortType = NaverShoppingEndPoint.Sort
     
     private let mainView = NSSearchView()
-    private let naverShoppingAPIService = NaverShoppingAPIService()
+    private let searchManager = NSSearchManager()
+    private var shoppingResults: [ShoppingData] = [] {
+        didSet {
+            mainView.resultsCollectionView.reloadData()
+            print(shoppingResults)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,7 @@ final class NSSearchViewController: UIViewController {
         }
     }
     private func configurationDelegate() {
+        searchManager.delegate = self
         mainView.searchBar.delegate = self
         mainView.sortButtonCollectionView.delegate = self
         mainView.sortButtonCollectionView.dataSource = self
@@ -44,7 +51,14 @@ final class NSSearchViewController: UIViewController {
 }
 
 extension NSSearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        mainView.searchBar.resignFirstResponder()
+    }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        guard let term = searchBar.text, !term.isEmpty else { return }
+        
+    }
 }
 
 extension NSSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -67,8 +81,26 @@ extension NSSearchViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        guard let term = mainView.searchBar.text, !term.isEmpty else { return }
+        searchManager.searchTerm(term: term, sort: SortType.allCases[indexPath.row])
     }
 }
 
+extension NSSearchViewController: NSSearchProtocol {
+    func updateShoppingList(_ list: [ShoppingData]) {
+        DispatchQueue.main.async {
+            self.shoppingResults = list
+        }
+    }
+    
+    func receiveError(_ errorMessage: String) {
+        DispatchQueue.main.async {
+            self.showCancelAlert(title: "데이터 불러오기 실패!", message: errorMessage, preferredStyle: .alert)
+        }
+        
+    }
+    
 
+    
+    
+}

@@ -17,6 +17,8 @@
 		553CCDFC2AAD738C0083C35B /* NSButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDFB2AAD738C0083C35B /* NSButtonCollectionViewCell.swift */; };
 		553CCDFE2AAD73B70083C35B /* NSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDFD2AAD73B70083C35B /* NSCollectionViewCell.swift */; };
 		553CCE002AAD761D0083C35B /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDFF2AAD761D0083C35B /* UIConstants.swift */; };
+		553CCE0D2AAD98B80083C35B /* NSSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE0C2AAD98B80083C35B /* NSSearchManager.swift */; };
+		553CCE0F2AADA1C50083C35B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE0E2AADA1C50083C35B /* UIViewController+Extension.swift */; };
 		558749B62AAC051900CEA4A2 /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558749B52AAC051900CEA4A2 /* ErrorString.swift */; };
 		558749B82AAC070000CEA4A2 /* NaverShoppingAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558749B72AAC070000CEA4A2 /* NaverShoppingAPIService.swift */; };
 		558749BD2AAC5A0000CEA4A2 /* NaverErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558749BC2AAC5A0000CEA4A2 /* NaverErrorResult.swift */; };
@@ -58,6 +60,8 @@
 		553CCDFB2AAD738C0083C35B /* NSButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		553CCDFD2AAD73B70083C35B /* NSCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCollectionViewCell.swift; sourceTree = "<group>"; };
 		553CCDFF2AAD761D0083C35B /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		553CCE0C2AAD98B80083C35B /* NSSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSearchManager.swift; sourceTree = "<group>"; };
+		553CCE0E2AADA1C50083C35B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		558749B52AAC051900CEA4A2 /* ErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorString.swift; sourceTree = "<group>"; };
 		558749B72AAC070000CEA4A2 /* NaverShoppingAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingAPIService.swift; sourceTree = "<group>"; };
 		558749BC2AAC5A0000CEA4A2 /* NaverErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverErrorResult.swift; sourceTree = "<group>"; };
@@ -114,6 +118,14 @@
 				553CCDFD2AAD73B70083C35B /* NSCollectionViewCell.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		553CCE0B2AAD98900083C35B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				553CCE0C2AAD98B80083C35B /* NSSearchManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		559332632AAB7599004BADF8 = {
@@ -178,7 +190,7 @@
 			children = (
 				5593328E2AAB7700004BADF8 /* App */,
 				559332932AAB7774004BADF8 /* Network */,
-				559332962AAB77A2004BADF8 /* Model */,
+				553CCE0B2AAD98900083C35B /* Model */,
 				559332912AAB7757004BADF8 /* View */,
 				559332A82AAB7D4F004BADF8 /* ViewModel */,
 			);
@@ -201,6 +213,7 @@
 		559332932AAB7774004BADF8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				559332962AAB77A2004BADF8 /* Model */,
 				559332A92AAB8F62004BADF8 /* Error */,
 				5593328F2AAB770E004BADF8 /* APIKey */,
 				559332952AAB7790004BADF8 /* APIEndPoint */,
@@ -262,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				553CCDF82AAD6AAA0083C35B /* UICollectionViewFlowLayout+Extension.swift */,
+				553CCE0E2AADA1C50083C35B /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -422,6 +436,7 @@
 			files = (
 				553CCDF52AAD5F200083C35B /* NSMoreViewController.swift in Sources */,
 				553CCDEF2AAD5E620083C35B /* NSTabBarController.swift in Sources */,
+				553CCE0D2AAD98B80083C35B /* NSSearchManager.swift in Sources */,
 				559332742AAB7599004BADF8 /* NSSearchViewController.swift in Sources */,
 				553CCDF12AAD5EBA0083C35B /* NSLikedViewController.swift in Sources */,
 				559332702AAB7599004BADF8 /* AppDelegate.swift in Sources */,
@@ -431,6 +446,7 @@
 				5593328C2AAB75FD004BADF8 /* APIKEY.swift in Sources */,
 				553CCDEC2AAD5D990083C35B /* NSSearchView.swift in Sources */,
 				553CCDF92AAD6AAA0083C35B /* UICollectionViewFlowLayout+Extension.swift in Sources */,
+				553CCE0F2AADA1C50083C35B /* UIViewController+Extension.swift in Sources */,
 				553CCDFE2AAD73B70083C35B /* NSCollectionViewCell.swift in Sources */,
 				559332AB2AAB8F7E004BADF8 /* NetworkError.swift in Sources */,
 				559332722AAB7599004BADF8 /* SceneDelegate.swift in Sources */,
