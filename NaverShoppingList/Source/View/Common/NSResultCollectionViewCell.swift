@@ -40,14 +40,14 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    private let imageView: UIImageView = UIImageView()
+    let imageView: UIImageView = UIImageView()
         .backgroundColor(.secondarySystemFill)
         .image(UIImage(systemName: "photo"))
         .contentMode(.scaleAspectFill)
         .cornerRadius(10)
         .clipsToBounds(true)
     
-    private lazy var heartButton: UIButton = {
+    lazy var heartButton: UIButton = {
         let button = UIButton()
             .backgroundColor(.systemBackground)
             .tintColor(.label)
@@ -105,31 +105,6 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
         addSubView(heartButton)
         addSubView(verticalStackView)
         setConstraints()
-        heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc func heartButtonTapped() {
-        guard let shoppingData else { return }
-        let task = shoppingData.convertToRealm()
-        let realmShoppingData = realm.objects(RealmShoppingData.self)
-        let storedShoppingData = realmShoppingData.where {
-            $0.productID == shoppingData.productID
-        }.first
-        
-        if let storedShoppingData {
-            heartButton.isSelected = false
-            RealmManager.removeImageFromDocument(fileName: shoppingData.productID)
-            try! realm.write {
-                realm.delete(storedShoppingData)
-            }
-            
-        } else {
-            heartButton.isSelected = true
-            RealmManager.saveImageToDocument(fileName: shoppingData.productID, image: imageView.image)
-            try! realm.write {
-                realm.add(task)
-            }
-        }
     }
     
     private func setConstraints() {
@@ -161,19 +136,3 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-@available(iOS 13.0, *)
-struct NSCollectionViewCell_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewPreview {
-            let view = NSResultCollectionViewCell(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width / 2 - 20, height: 200))
-            return view
-        }
-        .previewLayout(.sizeThatFits)
-        .padding(10)
-    }
-}
-#endif

@@ -21,6 +21,14 @@ final class NSSearchView: UIView {
         return sb
     }()
     
+    private lazy var verticalStackView: UIStackView = UIStackView()
+        .addArrangedSubview(sortButtonCollectionView)
+        .addArrangedSubview(resultsCollectionView)
+        .axis(.vertical)
+        .spacing(8)
+        .alignment(.fill)
+        .distribution(.fill)
+    
     let sortButtonCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -40,7 +48,7 @@ final class NSSearchView: UIView {
             numberOfRows: 2,
             additionalHeight: 76,
             spacing: 10,
-            inset: .init(top: 0, left: 10, bottom: 0, right: 10)
+            inset: .init(top: 0, left: 10, bottom: 10, right: 10)
         )
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor(.systemBackground)
@@ -49,7 +57,7 @@ final class NSSearchView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [searchBar, sortButtonCollectionView, resultsCollectionView].forEach { self.addSubView($0) }
+        [searchBar, verticalStackView].forEach { self.addSubView($0) }
         configureUI()
     }
     
@@ -62,16 +70,12 @@ final class NSSearchView: UIView {
         searchBar.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
         }
-        
-        sortButtonCollectionView.snp.makeConstraints { make in
+        verticalStackView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom)
-            make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(50)
-        }
-        
-        resultsCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(sortButtonCollectionView.snp.bottom).offset(8)
             make.horizontalEdges.bottom.equalToSuperview()
+        }
+        sortButtonCollectionView.snp.makeConstraints { make in
+            make.height.equalTo(50)
         }
     }
 

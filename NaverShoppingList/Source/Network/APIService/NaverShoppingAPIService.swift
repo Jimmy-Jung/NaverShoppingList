@@ -25,7 +25,7 @@ struct NaverShoppingAPIService {
         var urlComponents = URLComponents(string: NaverEndPoint.baseURL)
         guard !query.isEmpty else { return .failure(.networkingError(.query)) }
         guard display <= 100 else { return .failure(.networkingError(.display)) }
-        guard start <= 100 else { return .failure(.networkingError(.start)) }
+        guard start <= 1000 else { return .failure(.networkingError(.start)) }
         var queryItems: [URLQueryItem] = []
         queryItems.append(URLQueryItem(name: "query", value: query))
         queryItems.append(URLQueryItem(name: "display", value: "\(display)"))

@@ -24,6 +24,7 @@ final class RealmShoppingData: Object {
     @Persisted var category2: String
     @Persisted var category3: String
     @Persisted var category4: String
+    @Persisted var storedDate: Date
     
     convenience init(title: String, link: String, image: String, mallName: String, lprice: String, hprice: String, productID: String, productType: String, brand: String, maker: String, category1: String, category2: String, category3: String, category4: String) {
         self.init()

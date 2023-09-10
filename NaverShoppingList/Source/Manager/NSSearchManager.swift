@@ -9,6 +9,7 @@ import Foundation
 
 protocol NSSearchProtocol: AnyObject {
     func updateShoppingList(_ list: [ShoppingData])
+    func fetchShoppingList(_ list: [ShoppingData])
     func receiveError(_ errorMessage: String)
 }
 
@@ -17,6 +18,7 @@ final class NSSearchManager {
     private let naverShoppingAPIService = NaverShoppingAPIService()
     private var networkWorkItem: DispatchWorkItem?
     weak var delegate: NSSearchProtocol?
+    private var displayCount: Int = 0
     func searchTerm(term: String, sort: Sort) {
         
         // 이전에 예약된 네트워크 요청을 취소합니다.
@@ -40,6 +42,19 @@ final class NSSearchManager {
         let result = await naverShoppingAPIService.fetchSearchData(query: query, sort: sort)
         switch result {
         case .success(let result):
+            displayCount = result.display
+            delegate?.fetchShoppingList(result.items)
+        case .failure(let error):
+            delegate?.receiveError(error.errorDescription)
+            break
+        }
+    }
+    
+    func updateRequest(query: String, sort: Sort) async {
+        let result = await naverShoppingAPIService.fetchSearchData(query: query, start: displayCount + 1,sort: sort)
+        switch result {
+        case .success(let result):
+            displayCount += result.display
             delegate?.updateShoppingList(result.items)
         case .failure(let error):
             delegate?.receiveError(error.errorDescription)

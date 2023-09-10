@@ -74,7 +74,7 @@ final class NaverShoppingAPIServiceTests: XCTestCase {
     func testFetchSearchData_WhenInvalidStart_ShouldReturnFailure() async throws {
         // given
         let query = "iPhone"
-        let start = 101
+        let start = 1001
         
         // when
         let result = await sut.fetchSearchData(query: query, start: start)
