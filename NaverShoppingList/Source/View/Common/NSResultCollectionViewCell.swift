@@ -43,6 +43,7 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView = UIImageView()
         .backgroundColor(.secondarySystemFill)
         .image(UIImage(systemName: "photo"))
+        .tintColor(.secondaryLabel)
         .contentMode(.scaleAspectFill)
         .cornerRadius(10)
         .clipsToBounds(true)
