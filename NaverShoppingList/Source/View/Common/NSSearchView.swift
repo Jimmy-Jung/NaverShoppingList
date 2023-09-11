@@ -9,18 +9,21 @@ import UIKit
 import JimmyKit
 import SnapKit
 
+/// NSSearchView 클래스 정의
 final class NSSearchView: UIView {
-
+    
+    /// UISearchBar 인스턴스 생성
     let searchBar: UISearchBar = {
         let sb = UISearchBar()
-        sb.placeholder = NSSearchString.searchBarPlaceholder
+        sb.placeholder = "searchBar_placeholder".localized // 플레이스홀더 지정
         sb.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        sb.setValue("취소", forKey: "cancelButtonText")
+        sb.setValue("cancel_button".localized, forKey: "cancelButtonText") // 취소 버튼 이름 변경
         sb.setShowsCancelButton(true, animated: true)
-        sb.tintColor = .label
+        sb.tintColor = .label // 커서 색상 지정
         return sb
     }()
     
+    /// 버튼 CollectionView와 검색 결과 CollectionView를 포함하는 수직 StackView 생성
     private lazy var verticalStackView: UIStackView = UIStackView()
         .addArrangedSubview(sortButtonCollectionView)
         .addArrangedSubview(resultsCollectionView)
@@ -29,6 +32,7 @@ final class NSSearchView: UIView {
         .alignment(.fill)
         .distribution(.fill)
     
+    /// 정렬 버튼 CollectionView 생성
     let sortButtonCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -43,6 +47,7 @@ final class NSSearchView: UIView {
         return cv
     }()
     
+    /// 검색 결과 CollectionView 생성
     let resultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout(
             numberOfRows: 2,
@@ -55,17 +60,20 @@ final class NSSearchView: UIView {
         return cv
     }()
     
+    /// NSSearchView 클래스 초기화
     override init(frame: CGRect) {
         super.init(frame: frame)
         [searchBar, verticalStackView].forEach { self.addSubView($0) }
         configureUI()
     }
     
+    /// NSSearchView 클래스 초기화 실패 처리
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// UI 설정 메소드
     private func configureUI() {
         searchBar.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
@@ -78,5 +86,5 @@ final class NSSearchView: UIView {
             make.height.equalTo(50)
         }
     }
-
+    
 }

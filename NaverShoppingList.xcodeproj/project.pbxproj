@@ -11,19 +11,17 @@
 		553CCDEF2AAD5E620083C35B /* NSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDEE2AAD5E610083C35B /* NSTabBarController.swift */; };
 		553CCDF12AAD5EBA0083C35B /* NSLikedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDF02AAD5EBA0083C35B /* NSLikedViewController.swift */; };
 		553CCDF32AAD5F0A0083C35B /* NSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDF22AAD5F0A0083C35B /* NSDetailViewController.swift */; };
-		553CCDF52AAD5F200083C35B /* NSMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDF42AAD5F200083C35B /* NSMoreViewController.swift */; };
-		553CCDF72AAD65FE0083C35B /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDF62AAD65FE0083C35B /* LocalizedString.swift */; };
 		553CCDF92AAD6AAA0083C35B /* UICollectionViewFlowLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDF82AAD6AAA0083C35B /* UICollectionViewFlowLayout+Extension.swift */; };
 		553CCDFC2AAD738C0083C35B /* NSButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDFB2AAD738C0083C35B /* NSButtonCollectionViewCell.swift */; };
 		553CCDFE2AAD73B70083C35B /* NSResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDFD2AAD73B70083C35B /* NSResultCollectionViewCell.swift */; };
-		553CCE002AAD761D0083C35B /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDFF2AAD761D0083C35B /* UIConstants.swift */; };
+		553CCE002AAD761D0083C35B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCDFF2AAD761D0083C35B /* Constants.swift */; };
 		553CCE0D2AAD98B80083C35B /* NSSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE0C2AAD98B80083C35B /* NSSearchManager.swift */; };
 		553CCE0F2AADA1C50083C35B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE0E2AADA1C50083C35B /* UIViewController+Extension.swift */; };
 		553CCE132AADBB0A0083C35B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE122AADBB0A0083C35B /* String+Extension.swift */; };
 		553CCE152AADC9910083C35B /* ImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE142AADC9910083C35B /* ImageView+Extension.swift */; };
 		553CCE192AADD3160083C35B /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE182AADD3160083C35B /* RealmManager.swift */; };
 		553CCE1B2AADD45B0083C35B /* RealmShoppingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CCE1A2AADD45B0083C35B /* RealmShoppingData.swift */; };
-		558749B62AAC051900CEA4A2 /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558749B52AAC051900CEA4A2 /* ErrorString.swift */; };
+		553CCE4B2AAEB2860083C35B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553CCE4D2AAEB2860083C35B /* Localizable.strings */; };
 		558749B82AAC070000CEA4A2 /* NaverShoppingAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558749B72AAC070000CEA4A2 /* NaverShoppingAPIService.swift */; };
 		558749BD2AAC5A0000CEA4A2 /* NaverErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558749BC2AAC5A0000CEA4A2 /* NaverErrorResult.swift */; };
 		559332702AAB7599004BADF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593326F2AAB7599004BADF8 /* AppDelegate.swift */; };
@@ -58,19 +56,18 @@
 		553CCDEE2AAD5E610083C35B /* NSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabBarController.swift; sourceTree = "<group>"; };
 		553CCDF02AAD5EBA0083C35B /* NSLikedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLikedViewController.swift; sourceTree = "<group>"; };
 		553CCDF22AAD5F0A0083C35B /* NSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDetailViewController.swift; sourceTree = "<group>"; };
-		553CCDF42AAD5F200083C35B /* NSMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMoreViewController.swift; sourceTree = "<group>"; };
-		553CCDF62AAD65FE0083C35B /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		553CCDF82AAD6AAA0083C35B /* UICollectionViewFlowLayout+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewFlowLayout+Extension.swift"; sourceTree = "<group>"; };
 		553CCDFB2AAD738C0083C35B /* NSButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		553CCDFD2AAD73B70083C35B /* NSResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSResultCollectionViewCell.swift; sourceTree = "<group>"; };
-		553CCDFF2AAD761D0083C35B /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		553CCDFF2AAD761D0083C35B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		553CCE0C2AAD98B80083C35B /* NSSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSearchManager.swift; sourceTree = "<group>"; };
 		553CCE0E2AADA1C50083C35B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		553CCE122AADBB0A0083C35B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		553CCE142AADC9910083C35B /* ImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Extension.swift"; sourceTree = "<group>"; };
 		553CCE182AADD3160083C35B /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		553CCE1A2AADD45B0083C35B /* RealmShoppingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmShoppingData.swift; sourceTree = "<group>"; };
-		558749B52AAC051900CEA4A2 /* ErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorString.swift; sourceTree = "<group>"; };
+		553CCE4C2AAEB2860083C35B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		553CCE4E2AAEB2A90083C35B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		558749B72AAC070000CEA4A2 /* NaverShoppingAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingAPIService.swift; sourceTree = "<group>"; };
 		558749BC2AAC5A0000CEA4A2 /* NaverErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverErrorResult.swift; sourceTree = "<group>"; };
 		5593326C2AAB7599004BADF8 /* NaverShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +211,6 @@
 				5593329C2AAB785E004BADF8 /* Search */,
 				5593329B2AAB785C004BADF8 /* Like */,
 				5593329A2AAB7858004BADF8 /* Detail */,
-				559332A02AAB7954004BADF8 /* More */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,19 +290,10 @@
 		5593329E2AAB7892004BADF8 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				558749B52AAC051900CEA4A2 /* ErrorString.swift */,
-				553CCDF62AAD65FE0083C35B /* LocalizedString.swift */,
-				553CCDFF2AAD761D0083C35B /* UIConstants.swift */,
+				553CCDFF2AAD761D0083C35B /* Constants.swift */,
+				553CCE4D2AAEB2860083C35B /* Localizable.strings */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		559332A02AAB7954004BADF8 /* More */ = {
-			isa = PBXGroup;
-			children = (
-				553CCDF42AAD5F200083C35B /* NSMoreViewController.swift */,
-			);
-			path = More;
 			sourceTree = "<group>";
 		};
 		559332A92AAB8F62004BADF8 /* Error */ = {
@@ -391,11 +378,12 @@
 			};
 			buildConfigurationList = 559332672AAB7599004BADF8 /* Build configuration list for PBXProject "NaverShoppingList" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 559332632AAB7599004BADF8;
 			packageReferences = (
@@ -419,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5593328A2AAB75E6004BADF8 /* .gitignore in Resources */,
+				553CCE4B2AAEB2860083C35B /* Localizable.strings in Resources */,
 				5593327C2AAB7599004BADF8 /* LaunchScreen.storyboard in Resources */,
 				559332792AAB7599004BADF8 /* Assets.xcassets in Resources */,
 			);
@@ -438,7 +427,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553CCDF52AAD5F200083C35B /* NSMoreViewController.swift in Sources */,
 				553CCDEF2AAD5E620083C35B /* NSTabBarController.swift in Sources */,
 				553CCE0D2AAD98B80083C35B /* NSSearchManager.swift in Sources */,
 				559332742AAB7599004BADF8 /* NSSearchViewController.swift in Sources */,
@@ -448,7 +436,7 @@
 				559332702AAB7599004BADF8 /* AppDelegate.swift in Sources */,
 				553CCDF32AAD5F0A0083C35B /* NSDetailViewController.swift in Sources */,
 				558749B82AAC070000CEA4A2 /* NaverShoppingAPIService.swift in Sources */,
-				553CCE002AAD761D0083C35B /* UIConstants.swift in Sources */,
+				553CCE002AAD761D0083C35B /* Constants.swift in Sources */,
 				5593328C2AAB75FD004BADF8 /* APIKEY.swift in Sources */,
 				553CCDEC2AAD5D990083C35B /* NSSearchView.swift in Sources */,
 				553CCDF92AAD6AAA0083C35B /* UICollectionViewFlowLayout+Extension.swift in Sources */,
@@ -457,10 +445,8 @@
 				553CCDFE2AAD73B70083C35B /* NSResultCollectionViewCell.swift in Sources */,
 				559332AB2AAB8F7E004BADF8 /* NetworkError.swift in Sources */,
 				559332722AAB7599004BADF8 /* SceneDelegate.swift in Sources */,
-				558749B62AAC051900CEA4A2 /* ErrorString.swift in Sources */,
 				558749BD2AAC5A0000CEA4A2 /* NaverErrorResult.swift in Sources */,
 				559332A72AAB7C86004BADF8 /* NaverShoppingEndPoint.swift in Sources */,
-				553CCDF72AAD65FE0083C35B /* LocalizedString.swift in Sources */,
 				553CCDFC2AAD738C0083C35B /* NSButtonCollectionViewCell.swift in Sources */,
 				559332AD2AABAA06004BADF8 /* ShoppingResult.swift in Sources */,
 				553CCE132AADBB0A0083C35B /* String+Extension.swift in Sources */,
@@ -486,6 +472,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		553CCE4D2AAEB2860083C35B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553CCE4C2AAEB2860083C35B /* en */,
+				553CCE4E2AAEB2A90083C35B /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5593327A2AAB7599004BADF8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -501,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -561,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

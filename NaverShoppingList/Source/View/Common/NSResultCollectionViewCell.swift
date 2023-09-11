@@ -10,10 +10,11 @@ import JimmyKit
 import RealmSwift
 
 final class NSResultCollectionViewCell: UICollectionViewCell {
-    typealias SFConfig = UIImage.SymbolConfiguration
+    typealias CT = Constants
     
-    private let realm = try! Realm()
+    private let realm = RealmManager.createRealm(path: .favorite)
     
+    /// 검색 결과 목록을 구성하는 셀에 표시할 정보를 설정하는 메소드
     var shoppingData: ShoppingData? {
         didSet {
             guard let data = shoppingData else { return }
@@ -27,8 +28,9 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
                 heartButton.isSelected = false
             }
             
+            // 검색 결과 셀에 표시할 정보 설정
             let mallName = "[" + data.mallName + "]"
-            let title = data.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+            let title = data.title.htmlToString
             let price = data.lprice
             mallNameLabel.text(mallName)
             titleLabel.text(title)
@@ -36,55 +38,50 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
             if let image = RealmManager.loadImageFromDocument(fileName: data.productID) {
                 imageView.image(image)
             } else {
-                imageView.setImage(with: data.image, placeHolder: UIImage(systemName: "photo"), transition: .fade(0.3))
+                imageView.setImage(with: data.image, placeHolder: CT.resultCellPlaceholderImage, transition: .fade())
             }
         }
     }
+    
+    /// 검색 결과 셀에 표시할 이미지 뷰 생성
     let imageView: UIImageView = UIImageView()
-        .backgroundColor(.secondarySystemFill)
-        .image(UIImage(systemName: "photo"))
-        .tintColor(.secondaryLabel)
+        .image(CT.resultCellPlaceholderImage)
+        .tintColor(CT.resultCellPlaceholderImageTintColor)
         .contentMode(.scaleAspectFill)
-        .cornerRadius(10)
+        .cornerRadius(CT.resultCellImageCornerRadius)
         .clipsToBounds(true)
     
+    /// 검색 결과 셀에 표시할 하트 버튼 생성
     lazy var heartButton: UIButton = {
         let button = UIButton()
-            .backgroundColor(.systemBackground)
-            .tintColor(.label)
-            .cornerRadius(20)
+            .backgroundColor(CT.resultCellHeartButtonBGColor)
+            .tintColor(CT.resultCellHeartButtonTintColor)
+            .cornerRadius(CT.resultCellHeartButtonWidth/2)
             .clipsToBounds(true)
         
-        button.setImage(
-            UIImage(
-                systemName: "heart",
-                withConfiguration: SFConfig(pointSize: 20, weight: .medium)
-            ),
-            for: .normal
-        )
-        button.setImage(
-            UIImage(
-                systemName: "heart.fill",
-                withConfiguration: SFConfig(pointSize: 20, weight: .medium)
-            ),
-            for: .selected
-        )
+        // 하트 버튼 이미지 설정
+        button.setImage(CT.resultCellHeartButtonImage, for: .normal)
+        button.setImage(CT.resultCellHeartButtonSelectedImage, for: .selected)
         return button
     }()
     
+    /// 검색 결과 셀에 표시할 쇼핑몰명 레이블 생성
     private let mallNameLabel: UILabel = UILabel()
-        .font(.systemFont(ofSize: 13, weight: .medium))
-        .textColor(.secondaryLabel)
+        .font(CT.resultCellMallNameLabelFont)
+        .textColor(CT.resultCellMallNameLabelColor)
     
+    /// 검색 결과 셀에 표시할 상품명 레이블 생성
     private let titleLabel: UILabel = UILabel()
-        .font(.systemFont(ofSize: 14, weight: .medium))
-        .textColor(.label)
+        .font(CT.resultCellTitleLabelFont)
+        .textColor(CT.resultCellTitleLabelColor)
         .numberOfLines(2)
     
+    /// 검색 결과 셀에 표시할 최저가 레이블 생성
     private let lowPriceLabel: UILabel = UILabel()
-        .font(.systemFont(ofSize: 16, weight: .heavy))
-        .textColor(.label)
+        .font(CT.resultCellLowPriceLabelFont)
+        .textColor(CT.resultCellLowPriceLabelColor)
     
+    /// 검색 결과 셀에 표시할 뷰 생성
     private lazy var verticalStackView: UIStackView = UIStackView()
         .addArrangedSubview(mallNameLabel)
         .addArrangedSubview(titleLabel)
@@ -95,11 +92,7 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
         .alignment(.fill)
         .distribution(.fill)
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView.image = nil
-    }
-
+    /// 초기화 메소드
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(imageView)
@@ -108,22 +101,25 @@ final class NSResultCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
+    /// 검색 결과 셀에서 재사용할 때 호출되는 메소드
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
+    
+    /// 제약 설정 메소드
     private func setConstraints() {
-        // Constraints for imageView
         imageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
             make.height.equalTo(imageView.snp.width)
         }
-
-        // Constraints for heartButton
+        
         heartButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-10)
             make.bottom.equalTo(imageView.snp.bottom).offset(-10)
-            make.width.equalTo(40)
-            make.height.equalTo(40)
+            make.size.equalTo(CT.resultCellHeartButtonWidth)
         }
-
-        // Constraints for verticalStackView
+        
         verticalStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(10)
             make.top.equalTo(imageView.snp.bottom).offset(4)

@@ -21,17 +21,17 @@ enum NetworkError: Error, LocalizedError {
         case .networkingError(let queryError):
             return queryError.errorDescription
         case .dataError:
-            return ErrorString.dataError
+            return "data_error".localized
         case .parseError:
-            return ErrorString.parseError
+            return "parse_error".localized
         case .urlError:
-            return ErrorString.urlError
+            return "url_error".localized
         case .httpResponseError:
-            return ErrorString.httpResponseError
+            return "http_response_error".localized
         case .serverResponseError(let errorCode, let errorMessage):
             return "ErrorCode: \(errorCode), ErrorMessage: \(errorMessage)"
         case .unknownError:
-            return ErrorString.unknownError
+            return "unknown_error"
         }
     }
 }
@@ -45,13 +45,13 @@ enum QueryError: LocalizedError {
     var errorDescription: String {
         switch self {
         case .query:
-            return "검색어. UTF-8로 인코딩되어야 합니다."
+            return "query_error_query".localized
         case .display:
-            return "한 번에 표시할 검색 결과 개수(기본값: 10, 최댓값: 100)를 초과했습니다"
+            return "query_error_display".localized
         case .start:
-            return "검색 시작 위치(기본값: 1, 최댓값: 1000)를 초과했습니다"
+            return "query_error_start".localized
         case .exclude:
-            return "exclude={option}:{option}:{option} 형태로 설정해야합니다."
+            return "query_error_exclude".localized
         }
     }
 }
