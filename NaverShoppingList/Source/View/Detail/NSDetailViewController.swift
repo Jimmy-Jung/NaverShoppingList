@@ -30,7 +30,7 @@ class NSDetailViewController: UIViewController, WKUIDelegate {
         return storedShoppingData
     }
 
-    let realm = try! Realm()
+    let realm = RealmManager.createRealm(path: .favorite)
     var shoppingData: ShoppingData!
 
     // MARK:- Life Cycle

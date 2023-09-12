@@ -27,6 +27,7 @@ final class NSSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(realm.configuration.fileURL)
         configBackBarButton(title: title)
         configurationView()
         setConstraints()
