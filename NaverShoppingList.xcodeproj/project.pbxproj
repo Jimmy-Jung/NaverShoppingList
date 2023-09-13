@@ -39,6 +39,8 @@
 		559332AB2AAB8F7E004BADF8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559332AA2AAB8F7E004BADF8 /* NetworkError.swift */; };
 		559332AD2AABAA06004BADF8 /* ShoppingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559332AC2AABAA06004BADF8 /* ShoppingResult.swift */; };
 		559332B52AABFF8D004BADF8 /* NaverShoppingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559332B42AABFF8D004BADF8 /* NaverShoppingListTests.swift */; };
+		55DA535A2AB0423D00D83807 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55DA53592AB0423D00D83807 /* RealmSwift */; };
+		55DA535C2AB0424100D83807 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 55DA535B2AB0424100D83807 /* Realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DA535C2AB0424100D83807 /* Realm in Frameworks */,
+				55DA535A2AB0423D00D83807 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +145,7 @@
 				5593326E2AAB7599004BADF8 /* NaverShoppingList */,
 				559332B32AABFF8D004BADF8 /* NaverShoppingListTests */,
 				5593326D2AAB7599004BADF8 /* Products */,
+				55DA53582AB0423D00D83807 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -313,6 +318,13 @@
 			path = NaverShoppingListTests;
 			sourceTree = "<group>";
 		};
+		55DA53582AB0423D00D83807 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +365,10 @@
 				559332B72AABFF8D004BADF8 /* PBXTargetDependency */,
 			);
 			name = NaverShoppingListTests;
+			packageProductDependencies = (
+				55DA53592AB0423D00D83807 /* RealmSwift */,
+				55DA535B2AB0424100D83807 /* Realm */,
+			);
 			productName = NaverShoppingListTests;
 			productReference = 559332B22AABFF8D004BADF8 /* NaverShoppingListTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -781,6 +797,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 559332A12AAB7C2C004BADF8 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		55DA53592AB0423D00D83807 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 559332A12AAB7C2C004BADF8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		55DA535B2AB0424100D83807 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 559332A12AAB7C2C004BADF8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

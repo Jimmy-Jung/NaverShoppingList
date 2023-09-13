@@ -35,6 +35,11 @@ final class NSSearchViewController: UIViewController {
         firstBehavior()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainView.resultsCollectionView.reloadData()
+    }
+    
     // 첫번째 분류 셀이 선택되도록 한다.
     private func firstBehavior() {
         let startIndex = IndexPath(item: 0, section: 0)
